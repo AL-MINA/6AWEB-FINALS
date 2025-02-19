@@ -1,16 +1,18 @@
-
-
-<div class="background-one">
-  <div class="link-container">
-    <a class="link-one" routerLink="/" routerLinkActive="active">Template Driven</a>
+<div>
+  <h1> Almina Tanglao Forms | WD-302</h1>
+</div>
+<br>
+<nav>
+  <div class="nav-item">
+    <a routerLink="/" routerLinkActive="active">Template Driven</a>
   </div>
-</div>
-<div class="background-two link-container">
-  <a class="link-two" routerLink="/reactive-form" routerLinkActive="active">Reactive Form</a>
-</div>
-<div class="background-three link-container">
-  <a class="link-three" routerLink="/reactive-form-validation" routerLinkActive="active">Reactive Validation</a>
-</div>
-<br> <br>
+  <div class="nav-item">
+    <a routerLink="/reactive-form" routerLinkActive="active">Reactive</a>
+  </div>
+  <div class="nav-item">
+    <a routerLink="/reactive-form-validation" routerLinkActive="active">Reactive Validation</a>
+  </div>
+</nav>
+<br><br>
 
-<router-outlet />
+<router-outlet></router-outlet>

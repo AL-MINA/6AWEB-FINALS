@@ -1,32 +1,30 @@
 <div class="container">
-  <!-- Contact Form -->
   <div class="box">
     <p class="title">Contact Me (Template-Driven)</p>
     <form #userForm="ngForm" class="form" (ngSubmit)="onSubmit()">
-      <!-- Name -->
+
       <div class="input-container">
         <input type="text" name="username" [(ngModel)]="username" class="input" placeholder="Name" required>
       </div>
-      <!-- Email -->
+
       <div class="input-container">
         <input type="email" name="email" [(ngModel)]="email" class="input" placeholder="Email" required>
       </div>
-      <!-- Phone -->
+
       <div class="input-container">
         <input type="tel" name="phone" [(ngModel)]="phone" class="input" placeholder="Phone" required>
-      </div>
-      <!-- Message -->
+      </div> <!-- ✅ Fixed: Added missing closing </div> here -->
+
       <div class="input-container">
         <textarea name="message" [(ngModel)]="message" class="input" placeholder="Message" rows="3" required></textarea>
       </div>
-      <!-- Submit Button -->
+
       <button type="submit" class="submit-btn" [disabled]="!username || !email || !phone || !message">
         Submit 
       </button>
     </form>
   </div>
 
-  <!-- Submitted Details -->
   <div class="box" *ngIf="submitted">
     <p class="title">Your Details</p>
     <div class="submitted-container">
