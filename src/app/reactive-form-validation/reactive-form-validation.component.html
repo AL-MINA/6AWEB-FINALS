@@ -1,19 +1,29 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit">
-    <div>
-        <label for="email">Email</label>
-        <input class="input-box" type="email" id="email" formControlName="email">
-        <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="error">
-        Email us required and must be a valid email address.
-        </div>
-    </div>
-    
-    <div>
-        <label for="password">Password</label>
-        <input class="input-box" type="password" id="password" formControlName="password">
-        <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
-        Password us required and must be atleast 6 characters long.
-        </div>
-    </div>
-    
-    <button class="btn" type="submiut" [disabled]="loginForm.invalid">Submit</button>
-</form>
+<div class="container">
+  <div class="box">
+    <p class="title">Contact Me (Reactive Form Validation)</p>
+    <form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <input class="input" type="text" id="name" placeholder="Name" formControlName="name">
+      </div>
+      <div class="input-container">
+        <input class="input" type="number" id="age" placeholder="Age" formControlName="age">
+      </div>
+      <div class="input-container">
+        <input class="input" type="email" id="email" placeholder="Email" formControlName="email">
+      </div>
+      <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="error">
+        Email is required and must be a valid email address.
+      </div>
+      <div class="input-container">
+        <input class="input" type="password" id="password" placeholder="Password" formControlName="password">
+      </div>
+      <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
+        Password is required and must be at least 6 characters long.
+      </div>
+      <div class="input-container">
+        <textarea class="input" id="message" placeholder="Message" formControlName="message"></textarea>
+      </div>
+      <button class="submit-btn" type="submit" [disabled]="loginForm.invalid">Submit</button>
+    </form>
+  </div>
+</div>

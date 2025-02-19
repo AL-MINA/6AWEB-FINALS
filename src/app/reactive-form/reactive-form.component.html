@@ -1,7 +1,30 @@
-<div>
-    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
-        <input class="input-box" type="text" name="userName" placeholder="Enter Text" formControlName="userName">
-        <input class="btn" type="submit" value="Click here">
+<div class="container">
+  <div class="box">
+    <p class="title">Contact Me (Reactive Form)</p>
+    <form [formGroup]="formdata" class="form" (ngSubmit)="onClickSubmit()">
+      <div class="input-container">
+        <input class="input" type="text" placeholder="Name" formControlName="userName">
+      </div>
+      <div class="input-container">
+        <input class="input" type="email" placeholder="Email" formControlName="email">
+      </div>
+      <div class="input-container">
+        <input class="input" type="number" placeholder="Age" formControlName="age">
+      </div>
+      <div class="input-container">
+        <input class="input" type="text" placeholder="Address" formControlName="address">
+      </div>
+      <button class="submit-btn" type="submit">Submit</button>
     </form>
+  </div>
+
+  <div class="box" *ngIf="submitted">
+    <p class="title">Your Details</p>
+    <div class="submitted-container">
+      <p class="input-container"><strong>Name: </strong>{{ userName }}</p>
+      <p class="input-container"><strong>Email: </strong>{{ email }}</p>
+      <p class="input-container"><strong>Age: </strong>{{ age }}</p>
+      <p class="input-container"><strong>Address: </strong>{{ address }}</p>
+    </div>
+  </div>
 </div>
-<p>You heve entered: {{userName}}</p>

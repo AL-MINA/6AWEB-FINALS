@@ -11,11 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class TemplateDrivenComponent {
   title = "template-form-app";
-  anytext: string = "";
+
+  username: string = "";
+  email: string = "";
+  phone: string = "";
+  message: string = "";
   submitted: boolean = false;
 
   onSubmit() {
     this.submitted = true;
   }
-
 }

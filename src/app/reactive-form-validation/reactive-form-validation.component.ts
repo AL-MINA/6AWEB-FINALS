@@ -13,7 +13,10 @@ export class ReactiveFormValidationComponent {
   loginForm: FormGroup;
 
   constructor() {
-    this.loginForm = new FormGroup ({
+    this.loginForm = new FormGroup({
+      name: new FormControl(''),
+      age: new FormControl(''),
+      message: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
@@ -26,5 +29,4 @@ export class ReactiveFormValidationComponent {
       console.log('Form is invalid');
     }
   }
-
 }

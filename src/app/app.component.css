@@ -1,105 +1,284 @@
-:root {
-	--bgcolor: rgb(2, 0, 36);
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-}
-
 body {
-	min-height: 100vh;
-	display: grid;
-	place-items: center;
-	background: var(--bgcolor);
-	color: white;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 }
-ul {
-	list-style: none;
+
+.background-one {
+  background-color: #151515;
 }
+
+.background-two {
+  background-color: #151515;
+}
+
+.background-three {
+  background-color: #151515;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+}
+
 a {
-	font-size: 5rem;
-    color: #111;
-	position: relative;
-	text-transform: uppercase;
-	transition: all 300ms ease;
-	width: fit-content;
-	cursor: pointer;
-}
-a:hover {
-	transform: skew(10deg);
-}
-a::before {
-	content: attr(data-name);
-	position: absolute;
-	top: 0;
-	left: -20px;
-	background: var(--bgcolor);
-	height: 3rem;
-	overflow: hidden;
-	transition: all 300ms ease;
-	padding-left: 20px;
-}
-a:hover::before {
-	top: -3px;
-	left: 0px;
-	color: hotpink;
+  font-family: "Bungee", cursive;
+  font-size: 2.5em;
 }
 
-a::after {
-	content: "";
-	height: 4px;
-	width: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: hotpink;
-	transition: all 300ms ease;
-}
-a:hover::after {
-	width: 120%;
-	outline: 5px solid rgb(2, 0, 36);
+.link-one {
+  color: #53d9d1;
+  transition: color 1s cubic-bezier(0.32, 0, 0.67, 0);
+  line-height: 1em;
 }
 
-/* //////////////////////////// */
+.link-one:hover {
+  color: #111;
+  transition: color 1s cubic-bezier(0.33, 1, 0.68, 1);
 
-/*  links sidebar CSS  */
-._social-links {
-	position: fixed;
-	right: 0;
-	top: 50%;
-	transform: translatey(-50%);
-	padding: 1em 0.5em 1em 1em;
-	background: #fafafa;
-	border-radius: 0.5em 0 0 0.5em;
-	box-shadow: -4px 0px 0px hotpink;
-	transition: all 300ms ease;
+  /* Thanks Chris Coyier, you got my back always. https://css-tricks.com/different-transitions-for-hover-on-hover-off/ */
 }
 
-._social-links:hover {
-	box-shadow: -8px 0px 20px hotpink;
-	padding: 1em;
+.link-one::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #53d9d1;
+
+  clip-path: circle(0% at 50% calc(50%));
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-._links-list {
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
-}
-._social-link a {
-	color: #111;
-	font-size: 1.5rem;
-	transition: all 200ms ease;
-}
-._social-link a:visited {
-	color: #111;
-}
-._social-link a:hover {
-	color: hotpink;
-	font-size: 1.75rem;
+.link-one:hover::before {
+  clip-path: circle(100% at 50% 50%);
 }
 
-/* //////////////////////////// */
+.link-one::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #151515;
+
+  clip-path: polygon(
+    40% 0%,
+    60% 0%,
+    60% 0%,
+    40% 0%,
+    40% 100%,
+    60% 100%,
+    60% 100%,
+    40% 100%
+  );
+
+  /*
+  Didn't look consistently awesome enough
+  across different viewing widths.
+  clip-path: polygon(
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%
+  );
+  */
+  transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.link-one:hover::after {
+  /*
+  clip-path: polygon(
+    20% 45%,
+    10% 40%,
+    30% 30%,
+    40% 35%,
+    60% 35%,
+    70% 30%,
+    90% 40%,
+    80% 45%,
+    60% 35%,
+    40% 35%,
+    20% 45%,
+    20% 55%,
+    10% 60%,
+    30% 70%,
+    40% 65%,
+    60% 65%,
+    70% 70%,
+    90% 60%,
+    80% 55%,
+    60% 65%,
+    40% 65%,
+    20% 55%
+  );
+  */
+  clip-path: polygon(
+    40% 10%,
+    60% 10%,
+    60% 35%,
+    40% 35%,
+    40% 90%,
+    60% 90%,
+    60% 65%,
+    40% 65%
+  );
+}
+
+.link-two {
+  color: #f27b9b;
+  transition: color 1s cubic-bezier(0.32, 0, 0.67, 0);
+}
+
+.link-two:hover {
+  color: #111;
+  transition: color 1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.link-two::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  clip-path: polygon(
+    0% -20%,
+    100% -30%,
+    100% -10%,
+    0% 0%,
+    0% 130%,
+    100% 120%,
+    100% 100%,
+    0% 110%
+  );
+  background-color: #f27b9b;
+
+  transition: clip-path 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.link-two:hover::before {
+  clip-path: polygon(
+    0% 10%,
+    100% 0%,
+    100% 20%,
+    0% 30%,
+    0% 100%,
+    100% 90%,
+    100% 70%,
+    0% 80%
+  );
+}
+
+.link-two::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 5ch;
+  height: 5ch;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%) rotate(0deg) scale(0);
+  transition: transform 1s ease;
+
+  background-color: #f27b9b;
+}
+
+.link-two:hover::after {
+  transform: translate(50%, -50%) rotate(135deg) scale(1);
+}
+
+.link-three {
+  color: #eb7132;
+}
+
+.link-three::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  transform: translate(0, -50%) scaleY(0);
+  transition: transform 1s ease;
+  mix-blend-mode: difference;
+
+  clip-path: polygon(
+    20% 60%,
+    100% 60%,
+    100% 40%,
+    20% 40%,
+    20% 0%,
+    60% 0%,
+    60% 20%,
+    20% 20%
+  );
+
+  background-color: #eb7132;
+}
+
+.link-three:hover::after {
+  transform: translate(0, 0%) scaleY(1);
+}
+
+.link-three::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 50%;
+  height: 100%;
+  bottom: 0%;
+  right: 0%;
+  transform: translate(0, 50%) scaleY(0);
+  transition: transform 1s ease;
+  mix-blend-mode: difference;
+
+  clip-path: polygon(
+    80% 40%,
+    0% 40%,
+    0% 60%,
+    80% 60%,
+    80% 100%,
+    40% 100%,
+    40% 80%,
+    80% 80%
+  );
+
+  background-color: #eb7132;
+}
+
+.link-three:hover::before {
+  transform: translate(0%, 0%) scaleY(1);
+}
